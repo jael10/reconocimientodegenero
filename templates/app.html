@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+
+<div class="container">
+    <br><br>
+    <h3 class="display-8">Aplicación de reconicimiento entre Hombres y Mujeres</h3>
+    
+    <p>
+        ISTPET FG: Es una aplicación desarrollada en el curso de Analisis de Datos con python desarrollada por los estudiantes del 
+            ultimo nivel de la carrera de Desarrollo de Software del ISTPET. Es manejado por una muestra de datos y la utilización 
+            del aprendizaje de maquina para generar un modelo predictivo.
+            El uso comienza cuando un usuario sube una imagen, por detras se trabaja la imagen convirtiendo a escala de grises, se 
+            la recorta y convierte a valores propios vectorizando la imagen y finalmente haciendo el uso del modelo predictivo 
+            obteniendo. 
+            Todo el aplicativo esta funcionando en gracias al framework de Flask.
+    </p>
+    <img src="/static/images/002.PNG" class="image-fluid" width="600" alt="">
+
+    <a class="btn btn-outline-primary" href="/app/gender/">ISTPET FG</a>
+
+</div>
+
+{% endblock %}
