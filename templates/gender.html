@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br><br>
+
+            <h3 class="display-8" >Detector de hombre y mujer</h3>
+            <p>Sube una imagen (.jpg, .jpeg, .png), nuestro modelo puede
+                detectar rostros y luego predecir si pertenece a (un Hombre o una Mujer)
+            </p>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="file" class="form-control" name="image_name" required>
+                    <input type="submit" value="Upload & Predict" class="btn btn-outline-primary">
+                </div>
+            </form>
+
+        </div>
+        <div class="col-8">
+            {% if fileupload %}
+            <br><br>
+            <h3 class="display-8"> Predecir Imagen</h3>
+            <img src="/static/predict/prediction_image.jpg" class="image-fluid" width="500" alt="">
+            <hr>
+            <br>
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>Detección de rostros</th>
+                    <th>Valores propios de la imagen</th>
+                    <th>Predición Hombre o Mujer</th>
+                    <th>Puntaje</th>
+                </tr>
+                {% for element in report %}
+                    <tr>
+                        <td>
+                            <img src="/static/predict/{{ element[0] }}" class="image-fluid" height="100" alt="">
+                        </td>
+                        <td>
+                            <img src="/static/predict/{{ element[1] }}" class="image-fluid" height="100" alt="">
+                        </td>
+                        <td>{{ element[2] }}</td>
+                        <td>{{ element[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
